@@ -36,7 +36,6 @@ class GroupVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-
 //MARK: Pull all groups from Firebase, create array of group
     func getAllGroups(handler: @escaping (_ gropsArray: [Group]) -> ()) {
         var groupsArray = [Group]()

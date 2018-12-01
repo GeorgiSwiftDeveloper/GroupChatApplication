@@ -2,7 +2,7 @@
 //  GroupFeedVC.swift
 //  ChatApplication
 //
-//  Created by Georgi Malkhasyan on 11/19/18.
+//  Created by Georgi Malkhasyan on 11/19/18
 //  Copyright © 2018 Adamyan. All rights reserved.
 //
 

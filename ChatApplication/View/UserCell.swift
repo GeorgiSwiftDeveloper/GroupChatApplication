@@ -2,7 +2,7 @@
 //  UserCell.swift
 //  ChatApplication
 //
-//  Created by Georgi Malkhasyan on 11/18/18.
+//  Created by Georgi Malkhasyan on 11/18/18
 //  Copyright © 2018 Adamyan. All rights reserved.
 //
 

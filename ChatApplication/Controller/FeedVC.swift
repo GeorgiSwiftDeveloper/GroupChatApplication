@@ -45,7 +45,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 //    func configureTableView() {
 //        feedTableView.rowHeight = UITableView.automaticDimension
 //        feedTableView.estimatedRowHeight = 120.0
-//    }
+//   }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
