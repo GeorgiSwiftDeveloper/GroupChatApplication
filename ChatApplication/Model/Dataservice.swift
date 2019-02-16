@@ -110,4 +110,22 @@ class DataService {
         REF_GROUPS.childByAutoId().updateChildValues(["title": title,"description": description,"members": ids])
         handler(true)
     }
+    
+    
+    func gietAllGropups(handler: @escaping (_ groupsArray: [Group]) -> ()) {
+        var groupsArray = [Group]()
+        REF_GROUPS.observeSingleEvent(of: .value) { (groupSnap) in
+            guard  let groupsnap = groupSnap.children.allObjects as? [DataSnapshot] else {return}
+            for group in groupsnap {
+                let memberArray = group.childSnapshot(forPath: "members").value as? [String]
+                if (memberArray?.contains((Auth.auth().currentUser?.uid)!))! {
+                    let title = group.childSnapshot(forPath: "title").value as? String
+                    let description = group.childSnapshot(forPath: "description").value as? String
+                    let group = Group(title: title!, description: description!, key: group.key, members: memberArray!, memberCount: (memberArray?.count)!)
+                    groupsArray.append(group)
+                }
+            }
+            handler(groupsArray)
+        }
+    }
 }

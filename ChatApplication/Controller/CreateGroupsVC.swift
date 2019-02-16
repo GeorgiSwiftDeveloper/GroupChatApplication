@@ -10,7 +10,8 @@ import UIKit
 import Firebase
 class CreateGroupsVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     
-    @IBOutlet weak var groupMemberLbl: UITextField!
+    
+    @IBOutlet weak var groupMemberLbl: UILabel!
     @IBOutlet weak var doneBtn: UIButton!
     @IBOutlet weak var titleTxt: UITextField!
     @IBOutlet weak var descriptionTxt: UITextField!
