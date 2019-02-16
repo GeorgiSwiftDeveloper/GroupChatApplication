@@ -50,7 +50,20 @@ class CreateGroupsVC: UIViewController, UITableViewDataSource, UITableViewDelega
 
   //MARK: Create Group informaiton on Firebase Cloud and dissmiss controller
     @IBAction func doneBtnTapped(_ sender: Any) {
-
+        if titleTxt.text != "" && descriptionTxt.text != "" {
+            DataService.instance.getIds(forUserName: chosenUserArray) { (idArray) in
+                var userId = idArray
+                userId.append((Auth.auth().currentUser?.uid)!)
+                
+                DataService.instance.createGroup(withtTitle: self.titleTxt.text!, addDescription: self.descriptionTxt.text!, forUserID: userId, handler: { (groupCreated) in
+                    if groupCreated {
+                        self.dismiss(animated: true, completion: nil)
+                    }else{
+                        print("can not be created")
+                    }
+                })
+            }
+        }
     }
 
     

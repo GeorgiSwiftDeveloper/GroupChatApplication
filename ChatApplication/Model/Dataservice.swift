@@ -105,5 +105,9 @@ class DataService {
         }
     }
     
-
+    func createGroup(withtTitle title: String, addDescription description: String, forUserID ids:[String], handler: @escaping(_ groupCreated: Bool) -> ()) {
+        
+        REF_GROUPS.childByAutoId().updateChildValues(["title": title,"description": description,"members": ids])
+        handler(true)
+    }
 }
