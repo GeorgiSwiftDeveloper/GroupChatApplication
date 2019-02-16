@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.13.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.9"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -64,7 +64,7 @@
                                 <rect key="frame" x="0.0" y="91" width="375" height="527"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" rowHeight="145" id="5wd-HY-ftP" customClass="FeedCell" customModule="ChatApplication" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="feedCell" rowHeight="145" id="5wd-HY-ftP" customClass="FeedCell" customModule="ChatApplication" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="145"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5wd-HY-ftP" id="hfh-ME-epT">
@@ -211,7 +211,7 @@
                                 <rect key="frame" x="0.0" y="91" width="375" height="527"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupCell" rowHeight="120" id="HXe-Ym-f33" customClass="GroupCell" customModule="ChatApplication" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupCell" rowHeight="120" id="HXe-Ym-f33" customClass="GroupCell" customModule="ChatApplication" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HXe-Ym-f33" id="PMk-RK-Fje">
@@ -500,8 +500,8 @@
                         <viewLayoutGuide key="safeArea" id="zE7-Mv-rqi"/>
                     </view>
                     <connections>
-                        <outlet property="emailTxt" destination="QRq-2p-s7O" id="3PQ-Jr-44L"/>
-                        <outlet property="passwordTxt" destination="nQ0-Xy-JU6" id="Mag-Sb-G5c"/>
+                        <outlet property="emailField" destination="QRq-2p-s7O" id="WnY-e2-sdc"/>
+                        <outlet property="passwordField" destination="nQ0-Xy-JU6" id="Q5w-Fz-kTr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u2X-sG-QKl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -707,7 +707,7 @@
                                 <rect key="frame" x="0.0" y="371" width="375" height="247"/>
                                 <color key="backgroundColor" red="0.25490196079999999" green="0.27058823529999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="HRE-Hp-lMe">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="HRE-Hp-lMe">
                                         <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HRE-Hp-lMe" id="xKB-3u-CRf">
@@ -743,10 +743,10 @@
             </objects>
             <point key="canvasLocation" x="1670" y="0.0"/>
         </scene>
-        <!--Category GroupVC-->
+        <!--Create GroupsVC-->
         <scene sceneID="N4E-FH-oMz">
             <objects>
-                <viewController id="MaM-7k-xDk" customClass="CategoryGroupVC" customModule="ChatApplication" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="MaM-7k-xDk" customClass="CreateGroupsVC" customModule="ChatApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BDE-vf-oHu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -855,7 +855,7 @@
                                         <rect key="frame" x="0.0" y="222.5" width="375" height="313.5"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myuserCell" rowHeight="65" id="WcQ-T3-D6o" customClass="UserCell" customModule="ChatApplication" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="userCell" rowHeight="65" id="WcQ-T3-D6o" customClass="UserCell" customModule="ChatApplication" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="375" height="65"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WcQ-T3-D6o" id="Rin-ao-Xtq">
@@ -923,10 +923,10 @@
                         <viewLayoutGuide key="safeArea" id="qYR-U4-eLJ"/>
                     </view>
                     <connections>
-                        <outlet property="descLbl" destination="1TG-2h-x07" id="ILv-CJ-zRb"/>
                         <outlet property="descriptionTxt" destination="ZZT-TV-GAI" id="eyc-0D-1P0"/>
                         <outlet property="doneBtn" destination="uv3-ns-ziX" id="F0O-zU-tUQ"/>
                         <outlet property="emailSearchTxt" destination="ZQT-YW-WGh" id="DJg-RB-X9P"/>
+                        <outlet property="groupMemberLbl" destination="ZZT-TV-GAI" id="vnQ-cO-OJY"/>
                         <outlet property="groupTableView" destination="Fh3-5Y-4tW" id="CpO-x8-9Hq"/>
                         <outlet property="titleTxt" destination="eHd-BZ-Rnv" id="TWg-kt-d3m"/>
                     </connections>
@@ -986,7 +986,7 @@
                                     <constraint firstAttribute="height" constant="526" id="9BB-3t-Qou"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" reuseIdentifier="myCell" rowHeight="110" id="gaS-G1-67I" customClass="GroupFeedCell" customModule="ChatApplication" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" reuseIdentifier="myCell" rowHeight="110" id="gaS-G1-67I" customClass="GroupFeedCell" customModule="ChatApplication" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="110"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gaS-G1-67I" id="11s-Cu-g6i">

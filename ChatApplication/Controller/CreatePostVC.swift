@@ -9,16 +9,16 @@
 import UIKit
 import Firebase
 class CreatePostVC: UIViewController {
-
+    
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userEmail: UILabel!
     @IBOutlet weak var messageTextView: UITextView!
-    
     @IBOutlet weak var sendBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        messageTextView.delegate = self
+        sendBtn.bindToKeyboard()
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -26,25 +26,19 @@ class CreatePostVC: UIViewController {
         userEmail.text = Auth.auth().currentUser?.email
     }
     
-    //MARK: Send data to Firebase and save
+    //MARK: Create data and send  to Firebase and save
     @IBAction func sendBtnTapped(_ sender: Any) {
-        if messageTextView.text != "" && messageTextView.text != "Say something here..." {
-        self.sendBtn.isEnabled = false
-        print("Enter corect text!")
-        let messageDB = Database.database().reference().child("Message")
-        let messageDictionary = ["senderId": Auth.auth().currentUser?.email, "content": messageTextView.text!]
-        messageDB.childByAutoId().setValue(messageDictionary){
-            (error,reference) in
-            if error != nil {
-                print(error!)
-            }else {
-                print("message Save successfully!")
-                self.messageTextView.text = ""
-                self.sendBtn.isEnabled = true
-            }
-            
-        }
-        
+        if messageTextView.text != nil && messageTextView.text != "Say something here..." {
+            sendBtn.isEnabled = false
+            DataService.instance.uploadPost(withMessage: messageTextView.text, forUID: (Auth.auth().currentUser?.uid)!, withGroupKey: nil, sendComplete: { (isComplete) in
+                if isComplete {
+                    self.sendBtn.isEnabled = true
+                    self.dismiss(animated: true, completion: nil)
+                } else {
+                    self.sendBtn.isEnabled = true
+                    print("There was an error!")
+                }
+            })
         }
     }
     @IBAction func closeBtnTapped(_ sender: Any) {
@@ -55,8 +49,5 @@ class CreatePostVC: UIViewController {
 extension CreatePostVC: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         self.messageTextView.text = ""
-        
     }
-    
-    
 }

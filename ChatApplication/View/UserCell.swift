@@ -9,17 +9,11 @@
 import UIKit
 
 class UserCell: UITableViewCell {
-
-   
     @IBOutlet weak var userImage: UIImageView!
-    
     @IBOutlet weak var usersCheckMark: UIImageView!
     @IBOutlet weak var userEmail: UILabel!
-    
-    
-    
     var showing =  false
-    
+
     func configureCell(porofileImage image: UIImage, email: String, isSelected: Bool) {
         self.userImage.image = image
         self.userEmail.text = email
@@ -29,7 +23,6 @@ class UserCell: UITableViewCell {
             self.usersCheckMark.isHidden = true
         }
     }
-    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         

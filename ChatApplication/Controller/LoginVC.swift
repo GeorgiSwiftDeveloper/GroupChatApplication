@@ -10,11 +10,8 @@ import UIKit
 import Firebase
 class LoginVC: UIViewController {
 
-    
-    @IBOutlet weak var emailTxt: UITextField!
-    
-    @IBOutlet weak var passwordTxt: UITextField!
-    
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -22,18 +19,25 @@ class LoginVC: UIViewController {
 
 
     @IBAction func signTappedBtn(_ sender: Any) {
-        if emailTxt.text != nil && passwordTxt.text != nil  {
-            AuthService.instance.registerUser(email: self.emailTxt.text!, password: self.passwordTxt.text!) { (success, error) in
-                if error != nil  {
-                    print(error?.localizedDescription as Any)
-                }else {
-                    AuthService.instance.loginUser(email: self.emailTxt.text!, password: self.passwordTxt.text!, loginCreationComplete: { (success, error) in
-                        self.dismiss(animated: true, completion: nil)
-                        print("Successfuly registered user")
-                    })
+        if emailField.text != nil && passwordField.text != nil {
+            AuthService.instance.loginUser(withEmail: emailField.text!, andPassword: passwordField.text!, loginComplete: { (success, loginError) in
+                if success {
+                    self.dismiss(animated: true, completion: nil)
+                } else {
+                    print(String(describing: loginError?.localizedDescription))
                 }
-            }
-            
+                
+                AuthService.instance.registerUser(withEmail: self.emailField.text!, andPassword: self.passwordField.text!, userCreationComplete: { (success, registrationError) in
+                    if success {
+                        AuthService.instance.loginUser(withEmail: self.emailField.text!, andPassword: self.passwordField.text!, loginComplete: { (success, nil) in
+                            self.dismiss(animated: true, completion: nil)
+                            print("Successfully registered user")
+                        })
+                    } else {
+                        print(String(describing: registrationError?.localizedDescription))
+                    }
+                })
+            })
         }
     }
     

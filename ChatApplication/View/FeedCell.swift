@@ -14,9 +14,9 @@ class FeedCell: UITableViewCell {
     @IBOutlet weak var userEmailLbl: UILabel!
     @IBOutlet weak var messageLbl: UILabel!
   
-    func configureGroupCell(messange: Message) {
-        userImage.image = messange.image
-        userEmailLbl.text = messange.sender
-        messageLbl.text = messange.messagebody
+    func configureCell(profileImage: UIImage, email: String, content: String) {
+        self.userImage.image = profileImage
+        self.userEmailLbl.text = email
+        self.messageLbl.text = content
     }
 }
