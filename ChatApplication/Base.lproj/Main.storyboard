@@ -1107,8 +1107,9 @@
                         <viewLayoutGuide key="safeArea" id="2gW-7o-wjB"/>
                     </view>
                     <connections>
+                        <outlet property="groupFeedTableView" destination="mr6-ec-Zoo" id="glr-lQ-Cy9"/>
                         <outlet property="groupTitle" destination="69Z-3n-jGj" id="l8J-KR-oTH"/>
-                        <outlet property="membersTextField" destination="ZjQ-EO-9bK" id="wYi-Kj-naS"/>
+                        <outlet property="membersLbl" destination="ZjQ-EO-9bK" id="w90-z2-KlC"/>
                         <outlet property="sendBtn" destination="hIE-bF-aFh" id="ReM-BW-xwS"/>
                         <outlet property="sendMessage" destination="zXh-pV-6IW" id="B7L-Qx-gJN"/>
                     </connections>

@@ -11,18 +11,30 @@ import Firebase
 class GroupFeedVC: UIViewController {
     
     @IBOutlet weak var groupTitle: UILabel!
-    @IBOutlet weak var membersTextField: UILabel!
+
+    @IBOutlet weak var membersLbl: UILabel!
     @IBOutlet weak var sendMessage: UITextField!
     @IBOutlet weak var sendBtn: UIButton!
     
-    
+    var group: Group?
+    @IBOutlet weak var groupFeedTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         sendBtn.bindToKeyboard()
     }
     
+
+    
+    func initData(forGroup group: Group) {
+        self.group = group
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        groupTitle.text = group?.groupTitle
+        DataService.instance.getEmailsFor(group: group!) { (returnEmails) in
+            self.membersLbl.text =  returnEmails.joined(separator: ", ")
+        }
         
     }
     
